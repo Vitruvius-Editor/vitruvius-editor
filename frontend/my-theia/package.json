@@ -15,7 +15,7 @@
     "watch:electron": "lerna run --parallel watch --ignore browser-app"
   },
   "devDependencies": {
-    "lerna": "2.4.0"
+    "lerna": "8.1.9"
   },
   "workspaces": [
     "hello-world",
