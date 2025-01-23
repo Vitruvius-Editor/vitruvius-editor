@@ -3,7 +3,7 @@ import { svg } from 'sprotty/lib/lib/jsx';
 import { injectable } from 'inversify';
 import { VNode } from 'snabbdom';
 import { IView, RenderingContext, SNode } from 'sprotty';
-import { Package } from './models';
+import { Package, DependencyRelationship, Comment } from './models';
 
 @injectable()
 export class SPackageView implements IView {
@@ -16,6 +16,18 @@ export class SPackageView implements IView {
             >
             </rect>
             <text x={position} y={position + 5}>{node.name}</text>
+        </g>;
+    }
+}
+
+@injectable()
+export class SImportRelationshipView implements IView {
+    render(edge: Readonly<SNode>, context: RenderingContext): VNode {
+        return <g>
+            <path class-sprotty-edge={true}
+                d={`M ${edge.source.position.x} ${edge.source.position.y} L ${edge.target.position.x} ${edge.target.position.y}`}
+            >
+            </path>
         </g>;
     }
 }

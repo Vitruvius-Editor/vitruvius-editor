@@ -1,0 +1,2 @@
+this workspace folder is for testing purposes of the sprotty model. in the branch sprotty-implementation
+a file named model-source.ts can be found here which is an example of how the file looks like that sprotty needs to render a sprotty diagram.
