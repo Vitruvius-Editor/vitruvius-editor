@@ -1,15 +1,13 @@
-.sprotty-node.task {
+.sprotty-node.class {
   fill: #c0e0fc;
   stroke: #444;
   stroke-width: 1;
 }
 
-.sprotty-node.task.running {
-  fill: #f00;
-}
-
-.sprotty-node.task.finished {
-  fill: #0f0;
+.sprotty-node.association {
+  fill: #c0e0fc;
+  stroke: #444;
+  stroke-width: 1;
 }
 
 text {

@@ -4,7 +4,8 @@ export interface Package extends SNode {
     name: string;
 }
 
-export interface Imports extends SEdge {
+export interface DependencyRelationship extends SEdge {
+    name: string;
     from: string;
     to: string;
 }
