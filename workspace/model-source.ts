@@ -1,5 +1,5 @@
-import { SGraph, SEdge, SNode } from "sprotty-protocol";
-import { PackageNode,PackageEdge } from "./models";
+import { SGraph, SEdge, SNode } from "frontend/node_modules/sprotty-protocol";
+import { PackageNode,PackageEdge } from "frontend/vitruvius-editor/src/visualisation/uml/sprotty/uml-package-diagram/models.ts";
 
 export const graph: SGraph = {
     type: 'graph',
