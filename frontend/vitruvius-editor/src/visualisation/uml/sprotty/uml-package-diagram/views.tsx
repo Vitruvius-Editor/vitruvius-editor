@@ -21,7 +21,7 @@ export class SPackageView implements IView {
 }
 
 @injectable()
-export class SImportRelationshipView implements IView {
+export class SDependencyRelationshipView implements IView {
     render(edge: Readonly<SNode>, context: RenderingContext): VNode {
         return <g>
             <path class-sprotty-edge={true}

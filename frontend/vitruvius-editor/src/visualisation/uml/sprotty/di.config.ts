@@ -1,6 +1,6 @@
 import { Container, ContainerModule } from 'inversify';
 import { configureModelElement, configureViewerOptions, loadDefaultModules, LocalModelSource, PolylineEdgeView, SEdgeImpl, SGraphImpl, SGraphView, SNodeImpl, TYPES } from 'sprotty';
-import { TaskNodeView } from './views';
+import { SPackageView, SDependencyRelationshipView } from './uml-package-diagram/views';
 
 export const createContainer = (containerId: string) => {
     const myModule = new ContainerModule((bind, unbind, isBound, rebind) => {
@@ -8,8 +8,8 @@ export const createContainer = (containerId: string) => {
 
         const context = { bind, unbind, isBound, rebind };
         configureModelElement(context, 'graph', SGraphImpl, SGraphView);
-        configureModelElement(context, 'task', SNodeImpl, TaskNodeView);
-        configureModelElement(context, 'edge', SEdgeImpl, PolylineEdgeView);
+        configureModelElement(context, 'task', SNodeImpl, SPackageView);
+        configureModelElement(context, 'edge', SEdgeImpl, SDependencyRelationshipView);
 
         configureViewerOptions(context, {
             needsClientLayout: false,
