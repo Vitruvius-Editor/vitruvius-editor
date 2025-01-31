@@ -10,9 +10,21 @@ class ClassDiagramViewMapper: UmlViewMapper() {
         TODO("Not yet implemented")
     }
 
-    override fun mapWindowsContentToEObjects(windows: List<Window<String>>): List<EObject> {
+    /**
+     * Maps the given json string to view content, compares it to [oldEObjects] and applies the changes to [oldEObjects].
+     * Note that no changes will be applied to the model,
+     * this have to be done after this method with a View object, where the [oldEObjects] came from.
+     * @param oldEObjects The old EObjects to compare the windows to.
+     * @param windows the windows to map to EObjects.
+     * @return The view content.
+     */
+    override fun mapWindowsToEObjectsAndApplyChangesToEObjects(
+        oldEObjects: List<EObject>,
+        windows: List<Window<String>>
+    ): List<EObject> {
         TODO("Not yet implemented")
     }
+
 
     override fun mapViewToWindows(rootObjects: List<EObject>): Set<String> {
         TODO("Not yet implemented")

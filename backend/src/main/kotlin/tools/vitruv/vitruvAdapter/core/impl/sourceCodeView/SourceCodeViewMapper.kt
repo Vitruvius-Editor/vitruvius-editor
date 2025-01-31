@@ -35,10 +35,19 @@ class SourceCodeViewMapper: TextViewMapper() {
         return windows.toList()
     }
 
-
-    override fun mapWindowsContentToEObjects(windows: List<Window<String>>): List<EObject> {
-        val umlPackage = UMLFactory.eINSTANCE.createPackage()
-        return listOf(umlPackage)
+    /**
+     * Maps the given json string to view content, compares it to [oldEObjects] and applies the changes to [oldEObjects].
+     * Note that no changes will be applied to the model,
+     * this have to be done after this method with a View object, where the [oldEObjects] came from.
+     * @param oldEObjects The old EObjects to compare the windows to.
+     * @param windows the windows to map to EObjects.
+     * @return The view content.
+     */
+    override fun mapWindowsToEObjectsAndApplyChangesToEObjects(
+        oldEObjects: List<EObject>,
+        windows: List<Window<String>>
+    ): List<EObject> {
+        TODO("Not yet implemented")
     }
 
 

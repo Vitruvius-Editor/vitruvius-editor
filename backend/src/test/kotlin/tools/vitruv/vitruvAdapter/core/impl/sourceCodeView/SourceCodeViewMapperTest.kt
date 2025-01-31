@@ -91,9 +91,6 @@ class SourceCodeViewMapperTest {
     fun testMapWindowContentToEObjects() {
         val mapper = SourceCodeViewMapper()
         val windows = mapper.mapEObjectsToWindowsContent(this.eObjects)
-        val eObjects = mapper.mapWindowsContentToEObjects(windows)
-        println(mapper.mapEObjectsToWindowsContent(eObjects).get(0).content)
-        println(mapper.mapEObjectsToWindowsContent(this.eObjects).get(0).content)
     }
 
 }
