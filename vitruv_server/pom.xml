@@ -91,27 +91,6 @@
             <version>3.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.emf</groupId>
-            <artifactId>org.eclipse.emf.ecore</artifactId>
-            <version>2.21.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.emf</groupId>
-            <artifactId>org.eclipse.emf.common</artifactId>
-            <version>2.21.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.emf</groupId>
-            <artifactId>org.eclipse.emf.mwe.utils</artifactId>
-            <version>1.12.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.emf</groupId>
-            <artifactId>org.eclipse.emf.mwe2.runtime</artifactId>
-            <version>2.20.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit5</artifactId>
             <version>2.0.21</version>
@@ -143,31 +122,7 @@
             <artifactId>antlr-runtime</artifactId>
             <version>3.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.eclipse.emf</groupId>
-            <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-            <version>2.37.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.xtext</groupId>
-            <artifactId>org.eclipse.xtext</artifactId>
-            <version>2.36.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.xtext</groupId>
-            <artifactId>org.eclipse.xtext.common.types</artifactId>
-            <version>2.36.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.xtext</groupId>
-            <artifactId>org.eclipse.xtext.util</artifactId>
-            <version>2.36.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.xtext</groupId>
-            <artifactId>org.eclipse.xtext.xbase.lib</artifactId>
-            <version>2.36.0</version>
-        </dependency>
+
 
         <dependency>
             <groupId>local.uml2</groupId>
@@ -191,6 +146,93 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/Dependencies/common-2.0.0-v20140602-0749.jar</systemPath>
         </dependency>
+
+        <dependency>
+            <groupId>local.java</groupId>
+            <artifactId>java</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/mdsd/jamopp.model/6.0.0-SNAPSHOT/jamopp.model-6.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>local.java</groupId>
+            <artifactId>parser</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/mdsd/jamopp.parser/6.0.0-SNAPSHOT/jamopp.parser-6.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>local.java</groupId>
+            <artifactId>resource</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/mdsd/jamopp.resource/6.0.0-SNAPSHOT/jamopp.resource-6.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>local.java</groupId>
+            <artifactId>printer</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/mdsd/jamopp.printer/6.0.0-SNAPSHOT/jamopp.printer-6.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>local.java</groupId>
+            <artifactId>parser.bcel</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/mdsd/jamopp.parser.bcel/6.0.0-SNAPSHOT/jamopp.parser.bcel-6.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>local.java</groupId>
+            <artifactId>parser.jdt</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/mdsd/jamopp.parser.jdt/6.0.0-SNAPSHOT/jamopp.parser.jdt-6.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>local.java</groupId>
+            <artifactId>parser.jdt.singleFile</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/mdsd/jamopp.parser.jdt.singlefile/6.0.0-SNAPSHOT/jamopp.parser.jdt.singlefile-6.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>local.java</groupId>
+            <artifactId>parser.resolution</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/mdsd/jamopp.resolution/6.0.0-SNAPSHOT/jamopp.resolution-6.0.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/tools.vitruv/tools.vitruv.dsls.reactions.runtime -->
+        <dependency>
+            <groupId>local.vitruv</groupId>
+            <artifactId>dsls</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/tools.vitruv.dsls.reactions.runtime-3.1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>local.vitruv</groupId>
+            <artifactId>application</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Dependencies/tools/vitruv.applications.umljava/3.0.1-SNAPSHOT/tools.vitruv.applications.umljava-3.0.1-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jdt</groupId>
+            <artifactId>org.eclipse.jdt.core</artifactId>
+            <version>3.38.0</version>
+        </dependency>
+
 
     </dependencies>
 

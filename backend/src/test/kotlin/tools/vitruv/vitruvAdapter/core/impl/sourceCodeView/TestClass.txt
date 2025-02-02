@@ -1,0 +1,46 @@
+
+
+public class TestClass {
+
+    int a = 0;
+
+    int b = 1;
+
+    int c = 2 +54;
+
+    public void testMethod() {
+        System.out.println("Hello World!");
+    }
+
+    public void testMethod2() {
+        System.out.println("Hello World!");
+    }
+
+    public void testMethod3() {
+        System.out.println("Hello World!");
+    }
+
+}
+
+
+class TestClass2 {
+
+    int a = 0;
+
+    int b = 1;
+
+    int c = 2 +54;
+
+    public void testMethod() {
+        System.out.println("Hello World!");
+    }
+
+    public void testMethod2() {
+        System.out.println("Hello World!");
+    }
+
+    public void testMethod3() {
+        System.out.println("Hello World!");
+    }
+
+}

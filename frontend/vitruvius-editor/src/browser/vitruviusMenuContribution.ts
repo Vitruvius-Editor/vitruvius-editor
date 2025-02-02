@@ -34,26 +34,32 @@ export class VitruviusMenuContribution implements MenuContribution {
     menus.registerMenuAction(VitruviusMenu.VITRUVIUS, {
       commandId: HelpCommand.id,
       label: HelpCommand.label,
+      order: '0',
     });
     menus.registerMenuAction(VitruviusMenu.VITRUVIUS, {
       commandId: LoadProjectCommand.id,
       label: LoadProjectCommand.label,
+      order: '1',
     });
     menus.registerMenuAction(VitruviusMenu.VITRUVIUS, {
       commandId: ImportProjectCommand.id,
       label: ImportProjectCommand.label,
+      order: '2',
     });
     menus.registerMenuAction(VitruviusMenu.VITRUVIUS, {
       commandId: RefreshProjectCommand.id,
       label: RefreshProjectCommand.label,
+      order: '3',
     });
     menus.registerMenuAction(VitruviusMenu.VITRUVIUS, {
       commandId: DeleteProjectCommand.id,
       label: DeleteProjectCommand.label,
+      order: '4',
     });
     menus.registerMenuAction(VitruviusMenu.VITRUVIUS, {
       commandId: EditProjectCommand.id,
       label: EditProjectCommand.label,
+      order: '5',
     });
   }
 }

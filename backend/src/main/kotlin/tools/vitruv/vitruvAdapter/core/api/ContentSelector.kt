@@ -4,16 +4,15 @@ import org.eclipse.emf.ecore.EObject
 import tools.vitruv.framework.views.View
 
 /**
- * This interface represents a content selector, which selects the Elements that are contained in the given windows.
+ * The content selector selects the elements that are contained in the windows.
  */
 interface ContentSelector {
 
     /**
-     * Applies a selection to viewSelector.selectableElements.
-     * This method should only select the content for the given windows.
-     * @param viewSelector the viewSelector to select the elements within
-     * @param windows the windows to select the content for
-     * @return The viewSelector with the selected elements.
+     * Selects the view elements that are needed for the windows.
+     * @param rootObjects the root objects of the view
+     * @param windows the elements to select
+     * @return the selected elements
      */
-    fun applySelection(view: View, windows: Set<String>) : List<EObject>
+    fun applySelection(rootObjects: List<EObject>, windows: Set<String>) : List<EObject>
 }

@@ -3,18 +3,19 @@
   "name": "browser-app",
   "version": "0.0.0",
   "dependencies": {
-    "@theia/core": "1.57.1",
+    "@theia/core": "1.58.0",
     "@theia/editor": "1.57.1",
     "@theia/filesystem": "1.57.1",
+
     "@theia/markers": "1.58.0",
-    "@theia/messages": "1.57.1",
+    "@theia/messages": "1.58.0",
+
     "@theia/monaco": "1.57.1",
     "@theia/navigator": "1.57.1",
     "@theia/preferences": "1.57.1",
     "@theia/process": "1.57.1",
     "@theia/terminal": "1.57.1",
     "@theia/workspace": "1.57.1",
-	  "sprotty-theia": "0.12.0",
     "vitruvius-editor": "0.0.0"
   },
   "devDependencies": {

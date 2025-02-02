@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>jamopp.standalone</artifactId>
+    <packaging>jar</packaging>
+    <name>Extended JaMoPP Standalone Version</name>
+	<description>This package will provide a standalone CLI version for the extended JaMoPP.</description>
+
+    <parent>
+        <groupId>tools.mdsd</groupId>
+        <artifactId>jamopp.parent</artifactId>
+        <version>6.0.0-SNAPSHOT</version>
+    </parent>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.model</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.resource</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.parser.jdt</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -14,7 +14,7 @@ class GenericDisplayView(
     override val name: String,
     override val viewTypeName: String,
     override val viewMapper: ViewMapper<Any?>,
-    override val windowSelector: Selector,
+    override val internalSelector: Selector,
     override val contentSelector: ContentSelector
 ) : DisplayView
 

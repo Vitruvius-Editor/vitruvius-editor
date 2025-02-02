@@ -4,7 +4,7 @@ import tools.vitruv.framework.views.ViewSelector
 import tools.vitruv.vitruvAdapter.core.api.Selector
 
 /**
- * A selector that selects all given elements.
+ * A selector that selects all selectable elements within a viewSelector.
  *
  */
 class AllSelector : Selector {

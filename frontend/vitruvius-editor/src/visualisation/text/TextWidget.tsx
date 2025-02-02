@@ -12,6 +12,9 @@ import { VisualisationWidget } from "../VisualisationWidget";
  */
 @injectable()
 export class TextWidget extends VisualisationWidget<string> {
+  getVisualizerName(): string {
+      return "TextVisualizer";
+  }
   static readonly ID = "textwidget:textwidget";
   static readonly LABEL = "TextWidget";
 

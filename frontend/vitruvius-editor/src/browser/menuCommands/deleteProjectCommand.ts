@@ -8,6 +8,7 @@ import {
 import { inject, injectable } from "@theia/core/shared/inversify";
 import { DisplayViewWidgetContribution } from "../displayViewWidgetContribution";
 import { ConnectionService } from "../../backend-communication/ConnectionService";
+import {VisualisationWidgetRegistry} from "../../visualisation/VisualisationWidgetRegistry";
 
 /**
  * Command to delete a project.
@@ -30,6 +31,8 @@ export class VitruviusDeleteProjectContribution implements CommandContribution {
   protected readonly displayViewWidgetContribution!: DisplayViewWidgetContribution;
   @inject(ConnectionService)
   protected readonly connectionService!: ConnectionService;
+  @inject(VisualisationWidgetRegistry)
+  protected readonly visualisationWidgetRegistry!: VisualisationWidgetRegistry;
 
   /**
    * Register the command to delete a project.
@@ -56,6 +59,7 @@ export class VitruviusDeleteProjectContribution implements CommandContribution {
                       this.displayViewWidgetContribution.widget.then(
                         (widget) => {
                           if (widget.getConnection()?.uuid == connection.uuid) {
+                            this.visualisationWidgetRegistry.getWidgetsByConnection(connection).forEach(widgetData => widgetData.widget.close());
                             widget.loadProject(null);
                           }
                         },

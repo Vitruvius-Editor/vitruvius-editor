@@ -8,6 +8,8 @@ import {
 import { inject, injectable } from "@theia/core/shared/inversify";
 import { ConnectionService } from "../../backend-communication/ConnectionService";
 import { DisplayViewWidgetContribution } from "../displayViewWidgetContribution";
+import {VisualisationWidgetRegistry} from "../../visualisation/VisualisationWidgetRegistry";
+import {Connection} from "../../model/Connection";
 
 /**
  * Command to load a saved project from the server.
@@ -30,6 +32,8 @@ export class VitruviusLoadProjectContribution implements CommandContribution {
   protected readonly quickPickService!: QuickPickService;
   @inject(DisplayViewWidgetContribution)
   protected readonly displayViewWidgetContribution!: DisplayViewWidgetContribution;
+  @inject(VisualisationWidgetRegistry)
+  protected readonly visualisationWidgetRegistry!: VisualisationWidgetRegistry;
 
   /**
    * Register the command to load a saved project from the server.
@@ -48,9 +52,12 @@ export class VitruviusLoadProjectContribution implements CommandContribution {
                 label: connection.name,
                 // Load the project with the selected connection, if picked.
                 execute: () =>
-                  this.displayViewWidgetContribution.widget.then((widget) =>
-                    widget.loadProject(connection),
-                  ),
+                  this.displayViewWidgetContribution.widget.then((widget) => {
+                    if(widget.getConnection() != null) {
+                      this.visualisationWidgetRegistry.getWidgetsByConnection(widget.getConnection() as Connection).forEach(widgetData => widgetData.widget.close());
+                    }
+                    widget.loadProject(connection)
+                  }),
               };
             });
             // Show the quick pick items.

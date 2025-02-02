@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>jamopp.parser.bcel</artifactId>
+    <packaging>jar</packaging>
+    <name>Extended JaMoPP Parser for Class Files</name>
+	<description>This package provides a parser for the extended JaMoPP to read class files and generate Eclipse Modeling Framework-based Java models from the class files. Internally, the class files are read with the Apache Commons Bytecode Engineering Library (BCEL).</description>
+
+    <parent>
+        <groupId>tools.mdsd</groupId>
+        <artifactId>jamopp.parent</artifactId>
+        <version>6.0.0-SNAPSHOT</version>
+    </parent>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.ecore</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.model</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.bcel</groupId>
+            <artifactId>bcel</artifactId>
+        </dependency>
+    </dependencies>
+</project>

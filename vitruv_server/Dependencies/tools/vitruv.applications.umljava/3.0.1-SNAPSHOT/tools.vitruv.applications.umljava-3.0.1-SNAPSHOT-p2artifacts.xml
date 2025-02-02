@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='2'>
+  <artifact classifier='osgi.bundle' id='tools.vitruv.applications.umljava' version='3.0.1.202501301412'>
+    <properties size='9'>
+      <property name='artifact.size' value='1471429'/>
+      <property name='download.size' value='1471429'/>
+      <property name='download.checksum.sha-512' value='a582874bde04775bfb3bcc1ceee75b783fc09111b920a33fe3b8337781a0a55147c8936c949883bdf7a370e9233ced2489ed76afb76922c944a55b2e25b5d688'/>
+      <property name='download.checksum.sha-1' value='1929cc5bd75062c2d180d5b02a66437786afcfdc'/>
+      <property name='download.checksum.sha-256' value='6a8ed36053303a9ca2dcef5bdaff36347f263fab51ffa6696812a81b027bf763'/>
+      <property name='maven-groupId' value='tools.vitruv'/>
+      <property name='maven-artifactId' value='tools.vitruv.applications.umljava'/>
+      <property name='maven-version' value='3.0.1-SNAPSHOT'/>
+      <property name='maven-type' value='eclipse-plugin'/>
+    </properties>
+  </artifact>
+  <artifact classifier='osgi.bundle' id='tools.vitruv.applications.umljava.source' version='3.0.1.202501301412'>
+    <properties size='10'>
+      <property name='artifact.size' value='642955'/>
+      <property name='download.size' value='642955'/>
+      <property name='download.checksum.sha-512' value='fa7d9d31bd11583e577dc21c171925709ab289fd413045c44960d67458027ee3c5a67446035d373f3e84806107e67752c88e95b501ceb6d72e4e93eaad7c8e53'/>
+      <property name='download.checksum.sha-1' value='f6ec48a24214d4f45af41aa3dd8f6fd2869212f6'/>
+      <property name='download.checksum.sha-256' value='4bdbae4b41a6a704e28f6e258d3e1962f150667a7d79933d2f0496c60e09a431'/>
+      <property name='maven-groupId' value='tools.vitruv'/>
+      <property name='maven-artifactId' value='tools.vitruv.applications.umljava'/>
+      <property name='maven-version' value='3.0.1-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+      <property name='maven-type' value='java-source'/>
+    </properties>
+  </artifact>
+</artifacts>

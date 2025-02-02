@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>jamopp.parser.jdt.singlefile</artifactId>
+    <packaging>jar</packaging>
+    <name>Extended JaMoPP JDT-based Parser for Single Files</name>
+	<description>This package provides a parser for the extended JaMoPP to generate Eclipse Modeling Framework-based Java models from Java source code. It supports single files, i.e., without the need to have the full source code available. Internally, the Eclipse Java Development Tools are used to parse the source code after which the JDT AST is converted to a model.</description>
+
+    <parent>
+        <groupId>tools.mdsd</groupId>
+        <artifactId>jamopp.parent</artifactId>
+        <version>6.0.0-SNAPSHOT</version>
+    </parent>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.ecore</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.model</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.parser</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jdt</groupId>
+            <artifactId>org.eclipse.jdt.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.resolution</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+	</dependencies>
+</project>

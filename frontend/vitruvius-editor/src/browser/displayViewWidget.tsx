@@ -11,9 +11,11 @@ import { DisplayView } from "../model/DisplayView";
 import { DisplayViewService } from "../backend-communication/DisplayViewService";
 import { DisplayViewResolver } from "../visualisation/DisplayViewResolver";
 import { Content } from "../model/Content";
+import {VisualisationWidgetRegistry} from "../visualisation/VisualisationWidgetRegistry";
+import {StatefulWidget} from "@theia/core/lib/browser";
 
 @injectable()
-export class DisplayViewWidget extends ReactWidget {
+export class DisplayViewWidget extends ReactWidget implements StatefulWidget {
   static readonly ID = "widget:display-views";
   static readonly LABEL = "Vitruvius";
 
@@ -25,6 +27,9 @@ export class DisplayViewWidget extends ReactWidget {
 
   @inject(DisplayViewResolver)
   protected readonly displayViewResolver: DisplayViewResolver;
+
+  @inject(VisualisationWidgetRegistry)
+  protected readonly visualisationWidgetRegsitry: VisualisationWidgetRegistry;
 
   private connection: Connection | null;
   private widgetItems: WidgetItem[];
@@ -187,12 +192,25 @@ export class DisplayViewWidget extends ReactWidget {
         // Show the content in a new widget.
         this.displayViewResolver
           .getWidget(content as Content)
-          ?.then((widget) => widget.show());
+          ?.then((widget) => {
+              this.visualisationWidgetRegsitry.registerWidget(widget, widgetItem.displayView, this.connection as Connection);
+              widget.show();
+          });
       });
   }
+  storeState(): object {
+      return {connection: this.connection, widgetItems: this.widgetItems};
+  }
+  restoreState(oldState: object): void {
+      let typedState = oldState as DisplayViewWidgetState;
+      this.connection = typedState.connection;
+      this.widgetItems = typedState.widgetItems;
+  }
+
 }
 
 /**
  * Type used to represent a visual representation of a DisplayView in the widget.
  */
 type WidgetItem = { displayView: DisplayView; windows: string[] | null };
+type DisplayViewWidgetState = {connection: Connection, widgetItems: WidgetItem[]};

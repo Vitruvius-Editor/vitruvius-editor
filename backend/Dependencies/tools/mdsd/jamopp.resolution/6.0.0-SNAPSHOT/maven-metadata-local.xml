@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>tools.mdsd</groupId>
+  <artifactId>jamopp.resolution</artifactId>
+  <versioning>
+    <lastUpdated>20250129160021</lastUpdated>
+    <snapshot>
+      <localCopy>true</localCopy>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>6.0.0-SNAPSHOT</value>
+        <updated>20250129160021</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>6.0.0-SNAPSHOT</value>
+        <updated>20250129160021</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>6.0.0-SNAPSHOT</version>
+</metadata>

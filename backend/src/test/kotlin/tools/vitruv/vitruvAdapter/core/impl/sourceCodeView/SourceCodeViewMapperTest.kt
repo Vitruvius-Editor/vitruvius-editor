@@ -1,99 +1,75 @@
 package tools.vitruv.vitruvAdapter.core.impl.sourceCodeView
 
-import org.eclipse.emf.common.util.BasicEList
-import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.uml2.uml.*
-import org.eclipse.uml2.uml.internal.impl.LiteralIntegerImpl
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import tools.mdsd.jamopp.model.java.containers.CompilationUnit
+import tools.mdsd.jamopp.parser.jdt.singlefile.JaMoPPJDTSingleFileParser
+import java.io.FileInputStream
 
 
 class SourceCodeViewMapperTest {
     private lateinit var eObjects: List<EObject>
 
+    val mapper = SourceCodeViewMapper()
+
     @BeforeEach
     fun initObjects() {
-        val factory = UMLFactory.eINSTANCE
+        try {
+            val inputStream =
+                FileInputStream("src/test/kotlin/tools/vitruv/vitruvAdapter/core/impl/sourceCodeView/TestClass.txt")
+            val compilationUnit = JaMoPPJDTSingleFileParser().parse("TestClass.txt", inputStream) as CompilationUnit
+            eObjects = listOf(compilationUnit)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
-        val examplePackage = factory.createPackage()
-        examplePackage.name = "examplePackage"
-
-        val umlClass = examplePackage.createOwnedClass("ExampleModel", false)
-
-        val attribute = umlClass.createOwnedAttribute("myIntAttribute", null)
-        attribute.visibility = VisibilityKind.PUBLIC_LITERAL
-
-        val intType = factory.createDataType()
-        intType.name = "int"
-        attribute.type = intType
-        attribute.setIsStatic(true)
-        // 4.3 Set the Initial Value
-        val initialValue = factory.createLiteralInteger()
-        (initialValue as LiteralIntegerImpl).value = 5
-        attribute.defaultValue = initialValue
-
-       //create new attribute String myStringAttribute = "Hello"
-        val stringType = factory.createDataType()
-        stringType.name = "String"
-        val attributeString = umlClass.createOwnedAttribute("myStringAttribute", stringType)
-        attributeString.visibility = VisibilityKind.PUBLIC_LITERAL
-        attributeString.setIsStatic(true)
-        val initialValueString = factory.createLiteralString()
-        (initialValueString as LiteralString).value = "Hello"
-        attributeString.defaultValue = initialValueString
-
-
-        //create not static attribute
-        val attribute2 = umlClass.createOwnedAttribute("myIntAttribute2", intType)
-        attribute2.visibility = VisibilityKind.PUBLIC_LITERAL
-        attribute2.setIsStatic(false)
-        val initialValue2 = factory.createLiteralInteger()
-        (initialValue2 as LiteralIntegerImpl).value = 5
-        attribute2.defaultValue = initialValue2
-
-        val operationParameterNames: EList<String> = BasicEList<String>()
-        operationParameterNames.add("param1")
-        operationParameterNames.add("param2")
-
-        val operationParameterTypes: EList<Type> = BasicEList<Type>()
-        operationParameterTypes.add(intType)
-        operationParameterTypes.add(intType)
-
-        val operation = umlClass.createOwnedOperation("myOperation", operationParameterNames, operationParameterTypes)
-        operation.type = stringType
-
-        //add body to operation
-        val body = factory.createOpaqueBehavior()
-        body.name = "getWindowsBody"
-        body.languages.add("Kotlin")
-        body.bodies.add(
-            """
-            System.out.println("Hello World");
-        """.trimIndent()
-        )
-
-        operation.methods.add(body)
-        eObjects = listOf(umlClass)
     }
 
     @Test
     fun testMapEObjectsToWindowsContent() {
-        val mapper = SourceCodeViewMapper()
-        val windows = mapper.mapEObjectsToWindowsContent(eObjects)
-        assertEquals(1, windows.size)
-        assertEquals("ExampleModel", windows[0].name)
-        print(windows[0].content)
+        val sourceCodeSelector = SourceCodeContentSelector()
+        val views = mapper.mapViewToWindows(eObjects)
+        assertEquals(2, views.size)
+        val selectedEObjects = sourceCodeSelector.applySelection(eObjects, views)
+        val selectedContent = mapper.mapEObjectsToWindowsContent(selectedEObjects)
+        val firstClassContent = selectedContent[0].content
+        val expectedFirstClassContent = "public class TestClass {\n" +
+                "int a = 0;\n" +
+                "\n" +
+                "int b = 1;\n" +
+                "\n" +
+                "int c = 2 + 54;\n" +
+                "\n" +
+                "public  void testMethod() {\n" +
+                "System.out.println(\"Hello World!\");\n" +
+                "}\n" +
+                "\n" +
+                "public  void testMethod2() {\n" +
+                "System.out.println(\"Hello World!\");\n" +
+                "}\n" +
+                "\n" +
+                "public  void testMethod3() {\n" +
+                "System.out.println(\"Hello World!\");\n" +
+                "}\n" +
+                "\n" +
+                "}\n"
+        assertEquals(expectedFirstClassContent, firstClassContent)
     }
 
     @Test
     fun testMapWindowContentToEObjects() {
-        val mapper = SourceCodeViewMapper()
-        val windows = mapper.mapEObjectsToWindowsContent(this.eObjects)
-        val eObjects = mapper.mapWindowsContentToEObjects(windows)
-        println(mapper.mapEObjectsToWindowsContent(eObjects).get(0).content)
-        println(mapper.mapEObjectsToWindowsContent(this.eObjects).get(0).content)
+        //TODO: Implement test
+    }
+
+    @Test
+    fun tesMapViewToWindows() {
+        val windows = mapper.mapViewToWindows(this.eObjects)
+        val expected = mutableSetOf<String>()
+        expected.add("TestClass")
+        expected.add("TestClass2")
+        assertEquals(expected, windows)
     }
 
 }

@@ -10,6 +10,9 @@ import { VisualisationWidget } from "../VisualisationWidget";
 */
 @injectable()
 export class TableWidget extends VisualisationWidget<TableEntry[]> {
+    getVisualizerName(): string {
+        return "TextVisualizer";
+    }
 	static readonly ID = "tablewidget:tablewidget";
 	static readonly LABEL = "TableWidget";
 
@@ -49,5 +52,9 @@ export class TableWidget extends VisualisationWidget<TableEntry[]> {
 	  </div>
 	);
 	}
+
+    getContentString(): string {
+        return JSON.stringify({entries: this.content})
+    }
 }
 

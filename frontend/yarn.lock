@@ -1755,6 +1755,7 @@
     "@theia/workspace" "1.57.1"
     tslib "^2.6.2"
 
+
 "@theia/markers@1.58.0":
   version "1.58.0"
   resolved "https://registry.yarnpkg.com/@theia/markers/-/markers-1.58.0.tgz#0b5ef63c1a48c61ce42e77e0903016feaea7ff22"
@@ -1765,12 +1766,13 @@
     "@theia/workspace" "1.58.0"
     tslib "^2.6.2"
 
-"@theia/messages@1.57.1":
-  version "1.57.1"
-  resolved "https://registry.yarnpkg.com/@theia/messages/-/messages-1.57.1.tgz#3a0c58dce9e8f9915013c9a971db55d0e818b05d"
-  integrity sha512-uwozr07fF9XRf2DYiN4QsCKbTDIoZI9Scz2/OOmWzgK31WSJKpp1e6kQkxNDxCeKIMh0htJaCjBKWJPxDNKfyA==
+"@theia/messages@1.58.0":
+  version "1.58.0"
+  resolved "https://registry.yarnpkg.com/@theia/messages/-/messages-1.58.0.tgz#f8feb188395c4c13c5cda1217dcfe0c0208f3371"
+  integrity sha512-74RVmrd7S74isZnw4SF5X4vNBJlgdgTpqbAferTfZaeuPsvj2pG3ieMD+fnc1gx+upYjJIdQucyYaI9uqVjYcA==
+
   dependencies:
-    "@theia/core" "1.57.1"
+    "@theia/core" "1.58.0"
     react-perfect-scrollbar "^1.5.3"
     ts-md5 "^1.2.2"
     tslib "^2.6.2"
@@ -2199,9 +2201,9 @@
     form-data "^4.0.0"
 
 "@types/node@*", "@types/node@>=10.0.0", "@types/node@^22.10.7":
-  version "22.10.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.10.10.tgz#85fe89f8bf459dc57dfef1689bd5b52ad1af07e6"
-  integrity sha512-X47y/mPNzxviAGY5TcYPtYL8JsY3kAq2n8fMmKoRCxq/c4v4pyGNCzM2R6+M5/umG4ZfHuT+sgqDYqWc9rJ6ww==
+  version "22.12.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.12.0.tgz#bf8af3b2af0837b5a62a368756ff2b705ae0048c"
+  integrity sha512-Fll2FZ1riMjNmlmJOdAyY5pUbkftXslB5DgEzlIuNaiWhXd00FhWxVC/r4yV/4wBb9JfImTu+jiSvXTkJ7F/gA==
   dependencies:
     undici-types "~6.20.0"
 
@@ -4733,9 +4735,9 @@ fd-slicer@~1.1.0:
     pend "~1.2.0"
 
 fetch-mock@^12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-12.2.0.tgz#b2b6cc48ab7e9692c58051d7ece1adf5a83c87d1"
-  integrity sha512-XjgxM582kB0SzPOqH2UdGTwSqga8A8aBPjxcYr0wTeOlCWpZoK6zBrPzltECUTu6Zt3VTWafmKF599LN9BRN5Q==
+  version "12.2.1"
+  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-12.2.1.tgz#84b3e8ebf0d50af7f3af69e3adeee1320942ffa3"
+  integrity sha512-ZUEDYDCr/qeZ3paYVyt6VkmuV/3HhZFVsih1Mt8hAAT34Gsc6HUv2qaFd5nh82BMhOaFjYL2yZbYi5VMuIhXKw==
   dependencies:
     "@types/glob-to-regexp" "^0.4.4"
     dequal "^2.0.3"

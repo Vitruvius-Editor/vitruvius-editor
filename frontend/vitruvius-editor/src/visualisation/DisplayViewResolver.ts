@@ -2,7 +2,6 @@ import { Visualizer } from "./Visualizer";
 import { Extractor } from "./Extractor";
 import { injectable } from "@theia/core/shared/inversify";
 import { Content } from "../model/Content";
-import { DisplayView } from "../model/DisplayView";
 import { VisualisationWidget } from "./VisualisationWidget";
 
 /**
@@ -53,12 +52,11 @@ export class DisplayViewResolver {
    * @param widget - The widget for which the content is being retrieved.
    */
   getContent(
-    displayView: DisplayView,
     widget: VisualisationWidget<any>,
   ): Promise<Content> | null {
     return (
       this.mappings
-        .get(displayView.viewMapperName)?.[1]
+        .get(widget.getVisualizerName())?.[1]
         .extractContent(widget) ?? null
     );
   }

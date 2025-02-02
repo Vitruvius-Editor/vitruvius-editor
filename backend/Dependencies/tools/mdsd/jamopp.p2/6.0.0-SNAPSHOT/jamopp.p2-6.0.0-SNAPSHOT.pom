@@ -1,0 +1,197 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+    <artifactId>jamopp.p2</artifactId>
+    <packaging>pom</packaging>
+    <name>Extended JaMoPP P2 Site</name>
+	<description>This package builds a P2 update site for the extended JaMoPP.</description>
+
+    <parent>
+        <groupId>tools.mdsd</groupId>
+        <artifactId>jamopp.parent</artifactId>
+        <version>6.0.0-SNAPSHOT</version>
+    </parent>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.reficio</groupId>
+                <artifactId>p2-maven-plugin</artifactId>
+                <version>2.1.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <configuration>
+                            <categoryFileURL>${project.basedir}/src/category.xml</categoryFileURL>
+                            <artifacts>
+                                <!-- specify your depencies here -->
+                                <!-- groupId:artifactId:version -->
+                                <artifact>
+                                    <id>tools.mdsd:jamopp.model:6.0.0-SNAPSHOT</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                                <artifact>
+                                    <id>tools.mdsd:jamopp.model.edit:6.0.0-SNAPSHOT</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                                <artifact>
+                                    <id>tools.mdsd:jamopp.parser.jdt.singlefile:6.0.0-SNAPSHOT</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                                <artifact>
+                                    <id>tools.mdsd:jamopp.resource:6.0.0-SNAPSHOT</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                                <artifact>
+                                    <id>tools.mdsd:jamopp.parser.jdt:6.0.0-SNAPSHOT</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+								<artifact>
+                                    <id>tools.mdsd:jamopp.parser.bcel:6.0.0-SNAPSHOT</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                                <artifact>
+                                    <id>tools.mdsd:jamopp.standalone:6.0.0-SNAPSHOT</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                                <artifact>
+                                    <id>org.apache.logging.log4j:log4j-api:2.20.0</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                                <artifact>
+                                    <id>org.apache.bcel:bcel:6.7.0</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                                <artifact>
+                                    <id>org.apache.commons:commons-lang3:3.12.0</id>
+                                    <transitive>false</transitive>
+                                </artifact>
+                            </artifacts>
+                            <featureDefinitions>
+                                <feature>
+                                    <id>tools.mdsd.jamopp.feature</id>
+                                    <version>${project.version}</version>
+                                    <label>Extended Java Model Parser and Printer (JaMoPP)</label>
+                                    <providerName>MC</providerName>
+                                    <description>Extended Java Model Parser and Printer: Eclipse Modeling Framework-based environment for Java code.</description>
+                                    <copyright>
+Copyright (c) 2020-2023 Modelling for Continuous Software Engineering (MCSE) group, Institute of Information Security and Dependability (KASTEL), Karlsruhe Institute of Technology (KIT).
+									
+Copyright (c) 2006-2013 Software Technology Group, Dresden University of Technology, Germany; DevBoost GmbH, Dresden, Amtsgericht Dresden, HRB 34001.
+                                    </copyright>
+                                    <license>
+Eclipse Public License v1.0
+
+Copyright (c) 2020-2023
+Modelling for Continuous Software Engineering (MCSE) group, Institute of Information Security and Dependability (KASTEL), Karlsruhe Institute of Technology (KIT).
+
+Copyright (c) 2006-2013
+Software Technology Group, Dresden University of Technology
+DevBoost GmbH, Dresden, Amtsgericht Dresden, HRB 34001.
+
+All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+  Software Technology Group - TU Dresden, Germany;
+  DevBoost GmbH - Dresden, Germany
+     - initial API and implementation
+  MCSE, KASTEL, KIT
+     - Extension for Java 7-15, further independent maintenance
+                                    </license>
+                                    <generateSourceFeature>false</generateSourceFeature>
+                                    <artifacts>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.model:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.model.edit:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.parser:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.parser.jdt:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.parser.jdt.singlefile:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.printer:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.resolution:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.resource:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                        <artifact>
+                                            <id>tools.mdsd:jamopp.standalone:6.0.0-SNAPSHOT</id>
+                                            <transitive>false</transitive>
+                                            <source>false</source>
+                                        </artifact>
+                                    </artifacts>                           
+                                </feature>
+                            </featureDefinitions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/src.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <!-- The dependencies are to make sure this project is build after all relevant artifacts are created. -->
+    <dependencies>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.tests</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.model.edit</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>tools.mdsd</groupId>
+            <artifactId>jamopp.standalone</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

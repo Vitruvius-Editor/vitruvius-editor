@@ -7,8 +7,15 @@ import tools.vitruv.vitruvAdapter.core.api.DisplayContentMapper
 import tools.vitruv.vitruvAdapter.core.impl.VisualizerType
 import tools.vitruv.vitruvAdapter.core.impl.classTableView.Table
 
-class TableDisplayContentMapper<P> @PublishedApi internal constructor(private val typeReference:
-                    TypeReference<Table<P>>): DisplayContentMapper<Table<P>> {
+/**
+ * This class is used to map the content of a [Table] window to a string that can be displayed with the visualizer in the frontend and vice versa.
+ * @param P the type of the content
+ */
+
+class TableDisplayContentMapper<P> @PublishedApi internal constructor(
+    private val typeReference:
+    TypeReference<Table<P>>
+) : DisplayContentMapper<Table<P>> {
 
     private val objectMapper: ObjectMapper = jacksonObjectMapper()
 
@@ -21,6 +28,7 @@ class TableDisplayContentMapper<P> @PublishedApi internal constructor(private va
             return TableDisplayContentMapper(typeRef)
         }
     }
+
     /**
      * This function is used to parse the content of a window to a string.
      * @param content the content of the window

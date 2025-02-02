@@ -5,24 +5,28 @@ import org.eclipse.emf.ecore.EObject
 /**
  * This interface represents a view mapper, which is able to map contents of a view (RootObjects/EObjects),
  * to Windows that can be displayed in the graphical editor.
- * These are represented as json contents, which the graphical editor can interpret.
  * @author uhsab
  */
 interface ViewMapper<E> {
 
     /**
-     * Maps the given view content to a json string, which can be displayed in the graphical editor.
-     * @param rootObjects The view content to map.
-     * @return The json string representing the view content.
+     * Maps the given view content to a list of windows.
+     * @param selectEObjects The view content to map.
+     * @return The windows representing the view content.
      */
-    fun mapEObjectsToWindowsContent(rootObjects: List<EObject>): List<Window<E>>
+    fun mapEObjectsToWindowsContent(selectEObjects: List<EObject>): List<Window<E>>
+
 
     /**
-     * Maps the given json string to a view content, which can be displayed in the graphical editor.
-     * @param json The json string to map.
+     * Maps the given json string to view content, compares it to [oldEObjects] and applies the changes to [oldEObjects].
+     * Note that no changes will be applied to the model,
+     * this have to be done after this method with a View object, where the [oldEObjects] came from.
+     * @param oldEObjects The old EObjects to compare the windows to.
+     * @param windows the windows to map to EObjects.
      * @return The view content.
      */
-    fun mapWindowsContentToEObjects(windows: List<Window<E>>): List<EObject>
+    fun mapWindowsToEObjectsAndApplyChangesToEObjects(oldEObjects: List<EObject>, windows: List<Window<E>>): List<EObject>
+
 
     /**
      * Maps the given view to all windows it can find within the view.

@@ -25,6 +25,7 @@ import '../../src/browser/style/index.css';
 import {TableVisualizer} from "../visualisation/table/TableVisualizer";
 import {TableExtractor} from "../visualisation/table/TableExtractor";
 import {TableWidget} from "../visualisation/table/TableWidget";
+import {VisualisationWidgetRegistry} from "../visualisation/VisualisationWidgetRegistry";
 
 /**
  * This ContainerModule binds the services and contributions of the frontend part of the application.
@@ -37,6 +38,7 @@ export default new ContainerModule((bind) => {
   bind(DisplayViewService).toSelf().inSingletonScope();
 
   // All bindings for the visualisation of DisplayViews
+  bind(VisualisationWidgetRegistry).toSelf().inSingletonScope();
   bind(SourceCodeVisualizer).toSelf().inSingletonScope();
   bind(SourceCodeExtractor).toSelf().inSingletonScope();
   bind(TableVisualizer).toSelf().inSingletonScope();

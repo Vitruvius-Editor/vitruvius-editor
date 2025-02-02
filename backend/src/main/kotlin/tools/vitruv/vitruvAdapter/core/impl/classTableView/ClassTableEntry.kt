@@ -1,5 +1,9 @@
 package tools.vitruv.vitruvAdapter.core.impl.classTableView
 
+
+/**
+ * Represents a single entry in the class table.
+ */
 data class ClassTableEntry(
     val uuid: String,
     val name: String,

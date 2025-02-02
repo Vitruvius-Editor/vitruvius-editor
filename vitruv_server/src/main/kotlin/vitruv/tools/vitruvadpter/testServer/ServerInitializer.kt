@@ -5,16 +5,18 @@ import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.resource.ResourceSet
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.UMLFactory
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.VisibilityKind
 import org.eclipse.uml2.uml.internal.impl.LiteralIntegerImpl
-import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
 import org.eclipse.uml2.uml.internal.impl.UMLPackageImpl
-import org.eclipse.uml2.uml.internal.resource.UMLResourceFactoryImpl
+import tools.mdsd.jamopp.model.java.*
+import tools.mdsd.jamopp.model.java.classifiers.ClassifiersFactory
+import tools.mdsd.jamopp.model.java.containers.ContainersFactory
+import tools.mdsd.jamopp.model.java.impl.JavaPackageImpl
+import tools.mdsd.jamopp.model.java.members.MembersFactory
 import tools.vitruv.change.atomic.AtomicPackage
 import tools.vitruv.change.atomic.impl.AtomicPackageImpl
 import tools.vitruv.change.correspondence.CorrespondencePackage
@@ -30,7 +32,7 @@ import tools.vitruv.framework.vsum.VirtualModelBuilder
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
-import java.rmi.registry.Registry
+
 
 /**
  * Initializes the server
@@ -56,11 +58,74 @@ class ServerInitializer {
         registerRegistry()
         val vitruvServer = VitruvServer(VirtualModelInitializer { vsum }, serverPort, "localhost")
         generatePackage()
+
+       genrateJavaCode()
         return vitruvServer
     }
 
+    private fun genrateJavaCode(){
+
+        val fileName = "TestClass.java"
+        try{
+//            val inputStream: InputStream = FileInputStream("C:\\Users\\amira\\Desktop\\vitruvius-editor2\\vitruv_server\\src\\main\\resources\\TestClass.java")
+//            val rootw = JaMoPPJDTSingleFileParser().parse(fileName, inputStream) as CompilationUnit
+//
+//
+//
+////
+//            val classJava = ClassifiersFactory.eINSTANCE.createClass()
+//            val obejectClass = classJava.objectClass
+//
+//            for (classifier in root.classifiers){
+//                if(classifier is Class){
+//                    classifier.defaultExtends = null
+//                }
+//            }
+
+            val root = ClassifiersFactory.eINSTANCE.createClass()
+            root.name = "Dodo"
+            root.makePublic()
+            val member = MembersFactory.eINSTANCE.createField()
+            member.name = "myIntAttribute"
+            root.members.add(member)
+
+            val intType = tools.mdsd.jamopp.model.java.types.TypesFactory.eINSTANCE.createInt()
+            member.typeReference = intType
+
+
+            val newClass = ClassifiersFactory.eINSTANCE.createClass()
+            newClass.name = "Dodo1"
+            root.makePublic()
+            val member1 = MembersFactory.eINSTANCE.createField()
+            member1.name = "myIntAttribute1"
+            root.members.add(member1)
+            val intType1 = tools.mdsd.jamopp.model.java.types.TypesFactory.eINSTANCE.createInt()
+            member1.typeReference = intType1
+
+
+
+
+            val javaPackage = ContainersFactory.eINSTANCE.createCompilationUnit()
+            javaPackage.name = "exampleCompilationUnit"
+            javaPackage.classifiers.add(root)
+            javaPackage.classifiers.add(newClass)
+
+
+            val view = getJavaView().withChangeDerivingTrait()
+            view.registerRoot(javaPackage, javaUri)
+            view.commitChanges()
+            view.close()
+        } catch (e: Exception){
+            e.printStackTrace()
+        }
+    }
+
+
+
     private fun registerRegistry() {
-        Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put("*", UMLResourceFactoryImpl())
+        Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put("*", XMIResourceFactoryImpl())
+
+        EPackage.Registry.INSTANCE.put(JavaPackage.eNS_URI, JavaPackageImpl.eINSTANCE)
         EPackage.Registry.INSTANCE.put(CorrespondencePackage.eNS_URI, CorrespondencePackageImpl.eINSTANCE)
         EPackage.Registry.INSTANCE.put(UMLPackage.eNS_URI, UMLPackageImpl.eINSTANCE)
         EPackage.Registry.INSTANCE.put(AtomicPackage.eNS_URI, AtomicPackageImpl.eINSTANCE)
@@ -148,6 +213,7 @@ class ServerInitializer {
         view.registerRoot(examplePackage, umlUri)
         view.commitChanges()
         view.close()
+
     }
 
 
@@ -173,13 +239,12 @@ class ServerInitializer {
             Files.createDirectories(rootPath)
         }
 
-        return VirtualModelBuilder().withStorageFolder(rootPath).withUserInteractor(
-            UserInteractionFactory.instance.createUserInteractor(
-                UserInteractionFactory.instance.createPredefinedInteractionResultProvider(
-                    null
-                )
-            )
-        ).withViewTypes(viewTypes.values).buildAndInitialize()
+        return VirtualModelBuilder()
+            .withStorageFolder(rootPath)
+            .withUserInteractor(UserInteractionFactory.instance.createUserInteractor(
+                UserInteractionFactory.instance.createPredefinedInteractionResultProvider(null)))
+            .withViewTypes(viewTypes.values)
+            .buildAndInitialize()
     }
 
     private fun deletePath(pathToDelete: Path) {

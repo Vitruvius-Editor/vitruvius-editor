@@ -9,40 +9,40 @@ import org.eclipse.uml2.uml.Class
 
 class ClassTableContentSelector: ContentSelector {
 
-    val selectedElements = mutableListOf<EObject>()
-
     override fun applySelection(
-        view: View,
+        rootObjects: List<EObject>,
         windows: Set<String>
     ): List<EObject> {
-        val rootObjects = view.rootObjects.toList()
+        val rootObjectsWithClassOnly = mutableListOf<EObject>()
         for (ePackage in rootObjects) {
-
-            val iterator = ePackage.eAllContents()
-            while (iterator.hasNext()) {
-                val next = iterator.next()
-                if(next is Package && windows.contains(next.name)) {
-                    getClassesForPackage(next)
-                    selectedElements.add(next)
+            if(ePackage is Package){
+                val iterator = ePackage.eAllContents()
+                while (iterator.hasNext()) {
+                    val next = iterator.next()
+                    if (next is Package) {
+                        rootObjectsWithClassOnly.add(packageWithClassOnly(next))
+                    }
                 }
+                rootObjectsWithClassOnly.add(packageWithClassOnly(ePackage))
             }
-            if(ePackage is Package && windows.contains(ePackage.name)){
-                getClassesForPackage(ePackage)
-                selectedElements.add(ePackage)
-            }
-
         }
-        return selectedElements
+        return rootObjectsWithClassOnly
     }
 
 
-   private fun getClassesForPackage(ePackage: Package) {
-        val elementsToRemove = mutableListOf<EObject>()
-        for (element in ePackage.packagedElements) {
-            if (element !is Class) {
-                elementsToRemove.add(element)
+    private fun packageWithClassOnly(ePackage: Package): Package {
+        val newPackage = UMLFactory.eINSTANCE.createPackage()
+        newPackage.name = ePackage.name
+
+        // Create a copy of the elements before iteration
+        val elementsCopy = ePackage.packagedElements.toList()
+
+        for (element in elementsCopy) {
+            if (element is Class) {
+                newPackage.packagedElements.add(element)
             }
         }
-        ePackage.packagedElements.removeAll(elementsToRemove)
+
+        return newPackage
     }
 }

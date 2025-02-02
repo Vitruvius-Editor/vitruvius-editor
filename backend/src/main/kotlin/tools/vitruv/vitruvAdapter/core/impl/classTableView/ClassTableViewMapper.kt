@@ -35,6 +35,21 @@ class ClassTableViewMapper: ViewMapper<Table<ClassTableEntry>> {
         return windows
     }
 
+    /**
+     * Maps the given json string to view content, compares it to [oldEObjects] and applies the changes to [oldEObjects].
+     * Note that no changes will be applied to the model,
+     * this have to be done after this method with a View object, where the [oldEObjects] came from.
+     * @param oldEObjects The old EObjects to compare the windows to.
+     * @param windows the windows to map to EObjects.
+     * @return The view content.
+     */
+    override fun mapWindowsToEObjectsAndApplyChangesToEObjects(
+        oldEObjects: List<EObject>,
+        windows: List<Window<Table<ClassTableEntry>>>
+    ): List<EObject> {
+        TODO("Not yet implemented")
+    }
+
     private fun createClassEntryFromUmlClass(umlClass: Class): ClassTableEntry {
         val uuid = umlClass.eResource()?.getURIFragment(umlClass) ?: ""
         val name = umlClass.name ?: ""
@@ -79,15 +94,6 @@ class ClassTableViewMapper: ViewMapper<Table<ClassTableEntry>> {
         return TableDisplayContentMapper.create<ClassTableEntry>()
     }
 
-    /**
-     * Maps the given json string to a view content, which can be displayed in the graphical editor.
-     * @param json The json string to map.
-     * @return The view content.
-     */
-    override fun mapWindowsContentToEObjects(windows: List<Window<Table<ClassTableEntry>>>): List<EObject> {
-       TODO(
-       )
 
-    }
 
 }
