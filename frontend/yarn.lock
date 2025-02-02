@@ -1734,12 +1734,12 @@
     "@theia/workspace" "1.57.1"
     tslib "^2.6.2"
 
-"@theia/messages@1.57.1":
-  version "1.57.1"
-  resolved "https://registry.yarnpkg.com/@theia/messages/-/messages-1.57.1.tgz#3a0c58dce9e8f9915013c9a971db55d0e818b05d"
-  integrity sha512-uwozr07fF9XRf2DYiN4QsCKbTDIoZI9Scz2/OOmWzgK31WSJKpp1e6kQkxNDxCeKIMh0htJaCjBKWJPxDNKfyA==
+"@theia/messages@1.58.0":
+  version "1.58.0"
+  resolved "https://registry.yarnpkg.com/@theia/messages/-/messages-1.58.0.tgz#f8feb188395c4c13c5cda1217dcfe0c0208f3371"
+  integrity sha512-74RVmrd7S74isZnw4SF5X4vNBJlgdgTpqbAferTfZaeuPsvj2pG3ieMD+fnc1gx+upYjJIdQucyYaI9uqVjYcA==
   dependencies:
-    "@theia/core" "1.57.1"
+    "@theia/core" "1.58.0"
     react-perfect-scrollbar "^1.5.3"
     ts-md5 "^1.2.2"
     tslib "^2.6.2"
