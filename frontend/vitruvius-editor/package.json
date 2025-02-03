@@ -9,7 +9,7 @@
     "src"
   ],
   "dependencies": {
-    "@theia/core": "1.57.1"
+    "@theia/core": "1.58.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
