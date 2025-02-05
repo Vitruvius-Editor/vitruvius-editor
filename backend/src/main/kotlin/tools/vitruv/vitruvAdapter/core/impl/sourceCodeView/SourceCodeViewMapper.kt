@@ -12,6 +12,8 @@ import org.eclipse.jdt.core.ToolFactory
 import org.eclipse.jdt.core.formatter.CodeFormatter
 import org.eclipse.jface.text.Document
 import org.eclipse.text.edits.TextEdit
+import tools.mdsd.jamopp.parser.jdt.JaMoPPJDTParser
+import tools.mdsd.jamopp.parser.jdt.singlefile.JaMoPPJDTSingleFileParser
 import tools.vitruv.vitruvAdapter.core.api.PreMappedWindow
 
 
@@ -85,7 +87,32 @@ class SourceCodeViewMapper : TextViewMapper() {
         preMappedWindows: List<PreMappedWindow<String>>,
         windows: List<Window<String>>
     ): List<EObject> {
-        TODO("Not yet implemented")
+        val windowPairs = pairWindowsTogether(preMappedWindows, windows)
+        for (item in windowPairs) {
+            applyChangesToWindow(item.second, item.first)
+        }
+        return listOf() //unnecesary return value, has to be changed
+    }
+
+    private fun applyChangesToWindow(window: Window<String>, preMappedWindow: PreMappedWindow<String>) {
+        val parser = JaMoPPJDTSingleFileParser()
+        val inputStream = window.content.byteInputStream()
+        val javaRoot = parser.parse(preMappedWindow.name, inputStream)
+        val newEObjects = mapJavaRootToEObjects(preMappedWindow.neededEObjects, javaRoot)
+        checkIfOnlyMethodBodiesChanged(preMappedWindow.neededEObjects, newEObjects)
+        applyChangesToMethodBodies(preMappedWindow.neededEObjects, newEObjects)
+    }
+
+    private fun mapJavaRootToEObjects(eObjects: List<EObject>, javaRoot: JavaRoot): List<EObject> {
+        TODO()
+    }
+
+    private fun checkIfOnlyMethodBodiesChanged(oldEObjects: List<EObject>, newEObjects: List<EObject>) {
+        TODO()
+    }
+
+    private fun applyChangesToMethodBodies(oldEObjects: List<EObject>, newEObjects: List<EObject>) {
+        TODO()
     }
 
     override fun mapViewToWindows(rootObjects: List<EObject>): Set<String> {
