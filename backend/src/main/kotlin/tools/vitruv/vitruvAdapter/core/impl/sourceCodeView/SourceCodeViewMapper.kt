@@ -12,6 +12,9 @@ import org.eclipse.jdt.core.ToolFactory
 import org.eclipse.jdt.core.formatter.CodeFormatter
 import org.eclipse.jface.text.Document
 import org.eclipse.text.edits.TextEdit
+import org.eclipse.uml2.uml.Interface
+import tools.mdsd.jamopp.model.java.classifiers.Class
+import tools.mdsd.jamopp.model.java.members.MemberContainer
 import tools.mdsd.jamopp.parser.jdt.JaMoPPJDTParser
 import tools.mdsd.jamopp.parser.jdt.singlefile.JaMoPPJDTSingleFileParser
 import tools.vitruv.vitruvAdapter.core.api.PreMappedWindow
@@ -98,22 +101,33 @@ class SourceCodeViewMapper : TextViewMapper() {
         val parser = JaMoPPJDTSingleFileParser()
         val inputStream = window.content.byteInputStream()
         val javaRoot = parser.parse(preMappedWindow.name, inputStream)
-        val newEObjects = mapJavaRootToEObjects(preMappedWindow.neededEObjects, javaRoot)
-        checkIfOnlyMethodBodiesChanged(preMappedWindow.neededEObjects, newEObjects)
-        applyChangesToMethodBodies(preMappedWindow.neededEObjects, newEObjects)
+
+        checkIfOnlyMethodBodiesChanged(preMappedWindow.neededEObjects, javaRoot)
+        applyChangesToMethodBodies(preMappedWindow.neededEObjects, javaRoot)
     }
 
-    private fun mapJavaRootToEObjects(eObjects: List<EObject>, javaRoot: JavaRoot): List<EObject> {
+
+
+    private fun checkIfOnlyMethodBodiesChanged(oldEObjects: List<EObject>, javaRoot: JavaRoot) {
         TODO()
     }
 
-    private fun checkIfOnlyMethodBodiesChanged(oldEObjects: List<EObject>, newEObjects: List<EObject>) {
-        TODO()
+    private fun applyChangesToMethodBodies(oldEObjects: List<EObject>, javaRoot: JavaRoot) {
+        for (oldEObject in oldEObjects) {
+            val compilationUnit = javaRoot.containingCompilationUnit
+            if (oldEObject is MemberContainer) {
+                val javaClass = compilationUnit.containedClass
+                for (method in oldEObject.methods) {
+                    val javaMethod = javaClass.methods.find { it.name == method.name }
+                    if (javaMethod != null) {
+                        method.statements.clear()
+                        method.statements.addAll(javaMethod.statements)
+                    }
+                }
+            }
+        }
     }
 
-    private fun applyChangesToMethodBodies(oldEObjects: List<EObject>, newEObjects: List<EObject>) {
-        TODO()
-    }
 
     override fun mapViewToWindows(rootObjects: List<EObject>): Set<String> {
         val windows = mutableSetOf<String>()
