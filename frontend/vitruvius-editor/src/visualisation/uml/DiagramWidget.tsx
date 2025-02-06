@@ -54,6 +54,21 @@ export class DiagramWidget extends VisualisationWidget<string> {
    */
   handleChange(event: React.ChangeEvent<HTMLTextAreaElement>): void {
     this.content = event.target.value;
+    this.updateDiagram();
+  }
+
+  private updateDiagram(): void {
+    const engine = createEngine();
+    engine.getLinkFactories().registerFactory(new ArrowLinkFactory());
+
+    const umlDiagramParser = new UMLDiagramParser();
+    const umlDiagram = umlDiagramParser.parse(this.getContent());
+    const model = new DiagramModel();
+    umlDiagram.getNodes().forEach(component => model.addNode(component));
+    umlDiagram.getLinks().forEach(link => model.addLink(link));
+    engine.setModel(model);
+
+    this.forceUpdate();
   }
 
   getVisualizerName(): string {
