@@ -1,8 +1,9 @@
 import { TableWidget } from "./TableWidget";
 import { Container } from "@theia/core/shared/inversify";
 import '@testing-library/jest-dom';
-import {VisualisationWidgetRegistry} from "../VisualisationWidgetRegistry";
-import {Table} from "./Table";
+import { VisualisationWidgetRegistry } from "../VisualisationWidgetRegistry";
+import { Table } from "./Table";
+import { render, fireEvent } from '@testing-library/react';
 
 describe("TableWidget", () => {
     let widget: TableWidget;
@@ -68,9 +69,37 @@ describe("TableWidget", () => {
 
     it("should return the content as a string", () => {
         widget.updateContent(content);
+        expect(widget.getContentString()).toBe(JSON.stringify(widget.getContent()));
+    });
 
-        expect(widget.getContentString()).toBe(
-            JSON.stringify(widget.getContent())
-        );
+    it("should render the table with correct rows and columns", () => {
+        widget.updateContent(content);
+        const { container } = render(widget.render());
+        expect(container.querySelectorAll('thead th')).toHaveLength(content.columns.length);
+        expect(container.querySelectorAll('tbody tr')).toHaveLength(content.rows.length);
+    });
+
+    it("should handle input change correctly", () => {
+        widget.updateContent(content);
+        const { container } = render(widget.render());
+        const input = container.querySelector('input.hidden-input') as HTMLInputElement;
+        fireEvent.change(input, { target: { value: 'NewRow1' } });
+        expect(widget.getContent().rows[0].name).toBe('NewRow1');
+    });
+
+    it("should not display columns that should not be displayed", () => {
+        content.columns[0].shouldBeDisplayed = false;
+        widget.updateContent(content);
+        const { container } = render(widget.render());
+        expect(container.querySelectorAll('thead th')).toHaveLength(content.columns.length - 1);
+    });
+
+    it("should call handleChange on input change", () => {
+        const handleChangeSpy = jest.spyOn(widget, 'handleChange');
+        widget.updateContent(content);
+        const { container } = render(widget.render());
+        const input = container.querySelector('input.hidden-input') as HTMLInputElement;
+        fireEvent.change(input, { target: { value: 'NewRow1' } });
+        expect(handleChangeSpy).toHaveBeenCalled();
     });
 });

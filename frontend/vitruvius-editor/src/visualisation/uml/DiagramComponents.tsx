@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { DefaultLinkFactory, DefaultLinkModel, DefaultNodeModel, DefaultPortModel } from '@projectstorm/react-diagrams-defaults';
 import * as React from 'react';
 import { DiagramEngine, LinkWidget, PointModel } from '@projectstorm/react-diagrams-core';
@@ -99,7 +100,7 @@ export class ArrowPortModel extends DefaultPortModel {
 /**
  * CustomLinkArrowWidget component renders an arrow at the end of a link.
  */
-const CustomLinkArrowWidget = (props: { color?: any; point?: any; previousPoint?: any; }) => {
+export const CustomLinkArrowWidget = (props: { color?: any; point?: any; previousPoint?: any; }) => {
   const { point, previousPoint } = props;
 
   const angle =

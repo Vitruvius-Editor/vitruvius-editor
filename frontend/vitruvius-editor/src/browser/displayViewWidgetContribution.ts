@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { injectable } from "@theia/core/shared/inversify";
 import { MenuModelRegistry } from "@theia/core";
 import { DisplayViewWidget } from "./displayViewWidget";

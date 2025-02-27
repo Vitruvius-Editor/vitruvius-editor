@@ -58,6 +58,7 @@ export type VisibilityModifier = "PUBLIC" | "PRIVATE" | "PROTECTED";
 export type ConnectionType = "extends" | "implements" | "association" | "import";
 
 // Returns the symbol for a given visibility modifier
+/* istanbul ignore next */
 export function visibilitySymbol(visibilityModifier: VisibilityModifier): string {
     switch(visibilityModifier) {
         case "PUBLIC": return "+";

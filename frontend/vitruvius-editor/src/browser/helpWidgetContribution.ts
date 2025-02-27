@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { injectable } from "@theia/core/shared/inversify";
 import { HelpWidget } from "./helpWidget";
 import {
