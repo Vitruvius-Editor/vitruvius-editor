@@ -219,7 +219,7 @@
     <dependency>
       <groupId>tools.vitruv</groupId>
       <artifactId>tools.vitruv.framework.remote</artifactId>
-      <version>3.1.0</version>
+      <version>3.1.2</version>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
