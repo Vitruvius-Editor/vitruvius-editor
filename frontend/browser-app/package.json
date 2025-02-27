@@ -7,7 +7,7 @@
     "@theia/core": "1.58.1",
     "@theia/editor": "1.58.1",
     "@theia/filesystem": "1.58.1",
-    "@theia/markers": "1.58.1",
+    "@theia/markers": "1.59.0",
     "@theia/messages": "1.58.1",
     "@theia/monaco": "1.58.1",
     "@theia/navigator": "1.58.1",
