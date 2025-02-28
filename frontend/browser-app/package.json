@@ -14,7 +14,7 @@
     "@theia/preferences": "1.58.1",
     "@theia/process": "1.58.1",
     "@theia/terminal": "1.58.1",
-    "@theia/workspace": "1.58.1",
+    "@theia/workspace": "1.59.0",
     "vitruvius-editor": "0.0.0"
   },
   "devDependencies": {
