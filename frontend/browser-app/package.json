@@ -18,7 +18,7 @@
     "vitruvius-editor": "0.0.0"
   },
   "devDependencies": {
-    "@theia/cli": "1.58.1"
+    "@theia/cli": "1.59.0"
   },
   "scripts": {
     "bundle": "yarn rebuild && theia build --mode development",
