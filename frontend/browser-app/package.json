@@ -8,7 +8,7 @@
     "@theia/editor": "1.58.1",
     "@theia/filesystem": "1.58.1",
     "@theia/markers": "1.58.1",
-    "@theia/messages": "1.58.1",
+    "@theia/messages": "1.59.0",
     "@theia/monaco": "1.58.1",
     "@theia/navigator": "1.58.1",
     "@theia/preferences": "1.58.1",
