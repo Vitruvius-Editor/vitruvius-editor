@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@projectstorm/react-diagrams": "^7.0.4",
-    "@theia/core": "1.58.1",
+    "@theia/core": "1.59.0",
     "@theia/editor": "1.58.1",
     "@theia/filesystem": "1.58.1",
     "@theia/markers": "1.58.1",
