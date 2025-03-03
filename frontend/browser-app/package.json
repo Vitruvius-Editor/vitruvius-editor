@@ -13,7 +13,7 @@
     "@theia/navigator": "1.58.1",
     "@theia/preferences": "1.58.1",
     "@theia/process": "1.58.1",
-    "@theia/terminal": "1.58.1",
+    "@theia/terminal": "1.59.0",
     "@theia/workspace": "1.58.1",
     "vitruvius-editor": "0.0.0"
   },
