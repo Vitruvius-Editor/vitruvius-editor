@@ -22,3 +22,22 @@ test('Load project', async ({ page }) => {
   await page.getByText('Vitruvius Load Project', { exact: true }).click();
   await expect(page.getByLabel('Type to narrow down results.').locator('a')).toContainText('Example project');
 });
+
+test('Load invalid project', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+  await page.locator('[id="theia\\:menubar"]').getByText('Vitruvius').click();
+  await page.getByText('Vitruvius Import Project').click();
+  await page.getByRole('combobox', { name: 'input' }).fill('Example Project');
+  await page.getByRole('combobox', { name: 'input' }).press('Enter');
+  await page.getByRole('combobox', { name: 'input' }).fill('Example Description');
+  await page.getByRole('combobox', { name: 'input' }).press('Enter');
+  await page.getByRole('combobox', { name: 'input' }).fill('invalidhost.com');
+  await page.getByRole('combobox', { name: 'input' }).press('Enter');
+  await page.getByRole('combobox', { name: 'input' }).fill('1234');
+  await page.getByRole('combobox', { name: 'input' }).press('Enter');
+  await page.locator('[id="shell-tab-widget\\:display-views"] > .theia-tab-icon-label > .p-TabBar-tabIcon').click();
+  await expect(page.locator('[id="widget\\:display-views"]')).toContainText('Currently no Vitruvius project is loaded.');
+  await page.locator('[id="theia\\:menubar"]').getByText('Vitruvius').click();
+  await page.getByText('Vitruvius Load Project', { exact: true }).click();
+  await expect(page.locator('label')).toContainText('Example Project');
+});
