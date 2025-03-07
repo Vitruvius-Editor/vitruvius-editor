@@ -1,4 +1,8 @@
 import { test, expect } from '@playwright/test';
+import {beforeEach, afterEach} from '../hooks';
+
+test.beforeEach(beforeEach);
+test.afterEach(afterEach);
 
 test('Test SourceCode DisplayView diplaying', async ({ page }) => {
   await page.goto('http://localhost:3000/#/home/project');

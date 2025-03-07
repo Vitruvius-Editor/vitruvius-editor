@@ -10,7 +10,7 @@ export const beforeEach = async () => {
 };
 
 export const afterEach = async () => {
-    await execPromise("sudo docker-compose -f compose-tests.yml down");
+    await execPromise("sudo docker-compose -f compose-tests.yml down -t 0");
 };
 
 
