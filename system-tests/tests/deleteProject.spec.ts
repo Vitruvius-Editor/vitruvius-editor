@@ -37,8 +37,8 @@ test('Test project deletion', async ({ page }) => {
   await page.locator('[id="theia\\:menubar"]').getByText('Vitruvius').click();
   await page.getByText('Vitruvius Delete Project', { exact: true }).click();
   await page.getByRole('option', { name: 'Project 2' }).locator('a').click();
-  await expect(page.locator('[id="widget\\:display-views"]')).toContainText('Currently no Vitruvius project is loaded.');
+  await expect(page.locator('body')).toContainText('Project deleted.');
   await page.locator('[id="theia\\:menubar"]').getByText('Vitruvius').click();
   await page.getByText('Vitruvius Load Project', { exact: true }).click();
   await expect(page.getByLabel('Type to narrow down results.').locator('a').filter({ hasText: 'Project 1' })).toContainText('Project 1');
-});
+ });
