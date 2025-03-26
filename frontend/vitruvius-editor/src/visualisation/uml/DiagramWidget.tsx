@@ -92,7 +92,7 @@ export class DiagramWidget extends VisualisationWidget<Diagram> {
     umlDiagram.nodes.forEach((component) => model.addNode(component));
     umlDiagram.links.forEach((link) => model.addLink(link));
     this.engine.setModel(model);
-    this.disableDrag();
+    // this.disableDrag();
 
     const DiagramComponent: React.FC = () => {
       React.useLayoutEffect(() => {
@@ -331,10 +331,15 @@ export class DiagramWidget extends VisualisationWidget<Diagram> {
         switch (link.connectionType) {
           case "association":
             links.push(new UMLRelation("default", link.uuid, fromNode, toNode));
-          default:
+            break;
+          case "extends":
+            links.push(new UMLRelation("extends", link.uuid, fromNode, toNode));
+            break;
+          case "implements":
             links.push(
               new UMLRelation("advanced", link.uuid, fromNode, toNode),
             );
+            break;
         }
       }
     });
