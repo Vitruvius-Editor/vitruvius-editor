@@ -160,7 +160,6 @@ class DemoModel {
             interface1.createOwnedOperation("myOperation", operationParameterNames, operationParameterTypes)
             interface2.createOwnedOperation("myOperation", operationParameterNames, operationParameterTypes)
             interface1.redefinedInterfaces.add(interface2)
-            class2.createInterfaceRealization("InterfaceRealization1", interface1)
             return examplePackage
 
         }

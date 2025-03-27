@@ -54,8 +54,8 @@ class ClassDiagramViewMapper : UmlViewMapper() {
                 }
                 if (next.superClasses.isNotEmpty()) {
                     val superClass = next.superClasses.first()
-                    val sourceURI = EUtils.getUUIDForEObject(superClass)
-                    val targetURI = EUtils.getUUIDForEObject(next)
+                    val sourceURI = EUtils.getUUIDForEObject(next)
+                    val targetURI = EUtils.getUUIDForEObject(superClass)
                     val umlConnection =
                         UmlConnection(
                             "$sourceURI$$targetURI",
@@ -78,8 +78,8 @@ class ClassDiagramViewMapper : UmlViewMapper() {
 
                 if (next.redefinedInterfaces.isNotEmpty()) {
                     next.redefinedInterfaces.forEach { redefinedInterface ->
-                        val sourceURI = EUtils.getUUIDForEObject(redefinedInterface)
-                        val targetURI = EUtils.getUUIDForEObject(next)
+                        val sourceURI = EUtils.getUUIDForEObject(next)
+                        val targetURI = EUtils.getUUIDForEObject(redefinedInterface)
                         val umlConnection =
                             UmlConnection(
                                 "$sourceURI$$targetURI",
