@@ -1352,6 +1352,108 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lumino/algorithm@^2.0.2", "@lumino/algorithm@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@lumino/algorithm/-/algorithm-2.0.3.tgz#fecf5c17a511f68762dfab01f9e194a32d846a8d"
+  integrity sha512-DIcF7cIrGEC1Wh8DNjdwaL7IdcNs4Jj1VjO/90oHefeQPszKgc6DSfCxvbQiRanKR6tl/JL7tq4ZRPZES2oVAA==
+
+"@lumino/collections@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@lumino/collections/-/collections-2.0.3.tgz#62a19424f13b739c513fe6f709107e46d929d42c"
+  integrity sha512-Y9Wtvuk8SD6xcKgkqe3SUx5RywOcRz6DyWE4f5FvBT3OdANq76p9r0wtf8OKPt4BGE41kAQR+bdq3k+MfHlUsQ==
+  dependencies:
+    "@lumino/algorithm" "^2.0.3"
+
+"@lumino/commands@^2.3.1":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@lumino/commands/-/commands-2.3.2.tgz#abb8bd723e24afb98df798634e582ea67bf71918"
+  integrity sha512-aAFEiUpp2hrkQU82Z85w1L80g0iDzsQRncLBa+pqVR/k0k1lz6H9F6xZ1ff+lBumZKKtsxBxNomvd0hfxLLqGw==
+  dependencies:
+    "@lumino/algorithm" "^2.0.3"
+    "@lumino/coreutils" "^2.2.1"
+    "@lumino/disposable" "^2.1.4"
+    "@lumino/domutils" "^2.0.3"
+    "@lumino/keyboard" "^2.0.3"
+    "@lumino/signaling" "^2.1.4"
+    "@lumino/virtualdom" "^2.0.3"
+
+"@lumino/coreutils@^2.2.0", "@lumino/coreutils@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@lumino/coreutils/-/coreutils-2.2.1.tgz#a7be453befbd0b0e1bc3c583f471ecbd356d3a79"
+  integrity sha512-yij4TnxDIum7xfFUsVvZB0oLv4shs2mNbn3juwtEIsruvVBPmurNzKX0Y8z2QetbP2AZ6MSFtBzEKsihf0H0VA==
+  dependencies:
+    "@lumino/algorithm" "^2.0.3"
+
+"@lumino/disposable@^2.1.3", "@lumino/disposable@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@lumino/disposable/-/disposable-2.1.4.tgz#955e09663293d21a59e44ff16ca26b9572ace61c"
+  integrity sha512-qTJiDbglPE2QnG4x4gtBcRbcfKQibxyyinNGKcNDrcK2TGTbbhK5PpMQ8d70l2V2Xw2pb/LfksBAg5pxkJ/G4A==
+  dependencies:
+    "@lumino/signaling" "^2.1.4"
+
+"@lumino/domutils@^2.0.2", "@lumino/domutils@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@lumino/domutils/-/domutils-2.0.3.tgz#be3968ef6e690473ad714b1f686a1ff7846aa2df"
+  integrity sha512-bXAbZg3mf2ZDNdBBpCGDike3U+osRGHePTh8H2Ud2KwaN4g/5IryFJm/TiO4K5IYs91bWF2Zqhf3FsdbZKHlGw==
+
+"@lumino/dragdrop@^2.1.5":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@lumino/dragdrop/-/dragdrop-2.1.6.tgz#400174cb5be9464a4fc354e8a27ba6704877592f"
+  integrity sha512-N9aqdOYl5HTuTAIVvjTXxlPKK3e9JAj5yEtJ4nA/tNE7J8C9y3BRQ4fBAtk7O0z/8yx8tO8a0j5oSt2zAfvYuA==
+  dependencies:
+    "@lumino/coreutils" "^2.2.1"
+    "@lumino/disposable" "^2.1.4"
+
+"@lumino/keyboard@^2.0.2", "@lumino/keyboard@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@lumino/keyboard/-/keyboard-2.0.3.tgz#8ee609f6f41d342dcd2151d5936ff0414f97b4e1"
+  integrity sha512-bU2OxAR8a9eNBdV0YFjU6/lVVpbOw1gM7yHOuDGDdNu4J0UpKapFoR9gopNGSaHTmTwDtx9RHdFfIAgHwjZ+VQ==
+
+"@lumino/messaging@^2.0.2":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@lumino/messaging/-/messaging-2.0.3.tgz#7e0c816a3e926d32fac561e16bdab8bbf6c2f761"
+  integrity sha512-//NAE+FG9UWSoXs4i5imduGY1XDvhjMGNF82aMyFTv8wVU6bdRfRmj0xLlQ8ixzA0eXPOFL4ugWZNdlu48P1+Q==
+  dependencies:
+    "@lumino/algorithm" "^2.0.3"
+    "@lumino/collections" "^2.0.3"
+
+"@lumino/properties@^2.0.2":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@lumino/properties/-/properties-2.0.3.tgz#e718830ed181907abf93e41c409fbe03fc5b05ff"
+  integrity sha512-zkXIU5uYz/ScHCHGl5Bt4gMYsfPxZEduZd80zqDslBWvTIMro3NnzLe66NMnecbdr5N3hDJagYyA8//Qy3XjiA==
+
+"@lumino/signaling@^2.1.3", "@lumino/signaling@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@lumino/signaling/-/signaling-2.1.4.tgz#9297c0d7a88eab2b4137a8c6b4ce83bb917d6422"
+  integrity sha512-nC5Z6d9om369Jkh1Vp3b7C89hV4cjr1fQDVcxhemyKXwc9r6VW7FpKixC+jElcAknP5KLj1FAa8Np+K06mMkEA==
+  dependencies:
+    "@lumino/algorithm" "^2.0.3"
+    "@lumino/coreutils" "^2.2.1"
+
+"@lumino/virtualdom@^2.0.2", "@lumino/virtualdom@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@lumino/virtualdom/-/virtualdom-2.0.3.tgz#8e7a3b121e797a8052767e8144a084efff208212"
+  integrity sha512-q2C8eBxPvvOOQjN3KuxZ+vJi082JH/GF7KwMdaWsy5g+7wjKdnXPuLQFTBLOrVqIzmbxBDlLeFr93CEhdQXcyQ==
+  dependencies:
+    "@lumino/algorithm" "^2.0.3"
+
+"@lumino/widgets@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@lumino/widgets/-/widgets-2.5.0.tgz#7e37d86dbbc4eed1f85aa199b9fffa4919aa1e3e"
+  integrity sha512-RSRpc6aIEiuw79jqWUHYWXLJ2GBy7vhwuqgo94UVzg6oeh3XBECX0OvXGjK2k7N2BhmRrIs9bXky7Dm861S6mQ==
+  dependencies:
+    "@lumino/algorithm" "^2.0.2"
+    "@lumino/commands" "^2.3.1"
+    "@lumino/coreutils" "^2.2.0"
+    "@lumino/disposable" "^2.1.3"
+    "@lumino/domutils" "^2.0.2"
+    "@lumino/dragdrop" "^2.1.5"
+    "@lumino/keyboard" "^2.0.2"
+    "@lumino/messaging" "^2.0.2"
+    "@lumino/properties" "^2.0.2"
+    "@lumino/signaling" "^2.1.3"
+    "@lumino/virtualdom" "^2.0.2"
+
 "@malept/cross-spawn-promise@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@malept/cross-spawn-promise/-/cross-spawn-promise-2.0.0.tgz#d0772de1aa680a0bfb9ba2f32b4c828c7857cb9d"
@@ -1843,6 +1945,24 @@
     tslib "^2.6.2"
     write-json-file "^2.2.0"
 
+"@theia/application-package@1.62.2":
+  version "1.62.2"
+  resolved "https://registry.yarnpkg.com/@theia/application-package/-/application-package-1.62.2.tgz#659fb0110ba4aab99474efecb30f454271a51e8f"
+  integrity sha512-q+OboKlduxoDWrNB/d3gYvMjaquWBQZuJkQy9cYpdatF8dkoaf4ufHjOc4WqQf8cJGrV4mPQZwrcHQBpUMb8/w==
+  dependencies:
+    "@theia/request" "1.62.2"
+    "@types/fs-extra" "^4.0.2"
+    "@types/semver" "^7.5.0"
+    "@types/write-json-file" "^2.2.1"
+    deepmerge "^4.2.2"
+    fs-extra "^4.0.2"
+    is-electron "^2.1.0"
+    nano "^10.1.3"
+    resolve-package-path "^4.0.3"
+    semver "^7.5.4"
+    tslib "^2.6.2"
+    write-json-file "^2.2.0"
+
 "@theia/cli@1.58.1":
   version "1.58.1"
   resolved "https://registry.yarnpkg.com/@theia/cli/-/cli-1.58.1.tgz#f9657fa0bb26c18faad3fe44535628eea6edbf84"
@@ -1934,6 +2054,80 @@
     msgpackr "^1.10.2"
     p-debounce "^2.1.0"
     perfect-scrollbar "^1.5.5"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-tooltip "^4.2.21"
+    react-virtuoso "^2.17.0"
+    reflect-metadata "^0.2.2"
+    route-parser "^0.0.5"
+    safer-buffer "^2.1.2"
+    socket.io "^4.5.3"
+    socket.io-client "^4.5.3"
+    tslib "^2.6.2"
+    uuid "^9.0.1"
+    vscode-languageserver-protocol "^3.17.2"
+    vscode-uri "^2.1.1"
+    ws "^8.17.1"
+    yargs "^15.3.1"
+
+"@theia/core@1.62.2":
+  version "1.62.2"
+  resolved "https://registry.yarnpkg.com/@theia/core/-/core-1.62.2.tgz#66a049c9dd1879d44a50a88dd4221fd51f646558"
+  integrity sha512-5UIGUHZg0ZnvGbH2GteBTrW3OG8FIslvGAJhyLCn28UB8YN4Dv+liqjDb1ycFUDGRcz//N15LgDBAZBloeyDDQ==
+  dependencies:
+    "@babel/runtime" "^7.10.0"
+    "@lumino/algorithm" "^2.0.2"
+    "@lumino/commands" "^2.3.1"
+    "@lumino/coreutils" "^2.2.0"
+    "@lumino/domutils" "^2.0.2"
+    "@lumino/dragdrop" "^2.1.5"
+    "@lumino/messaging" "^2.0.2"
+    "@lumino/properties" "^2.0.2"
+    "@lumino/signaling" "^2.1.3"
+    "@lumino/virtualdom" "^2.0.2"
+    "@lumino/widgets" "2.5.0"
+    "@parcel/watcher" "^2.5.0"
+    "@theia/application-package" "1.62.2"
+    "@theia/request" "1.62.2"
+    "@types/body-parser" "^1.16.4"
+    "@types/cookie" "^0.3.3"
+    "@types/express" "^4.17.21"
+    "@types/fs-extra" "^4.0.2"
+    "@types/lodash.debounce" "4.0.3"
+    "@types/lodash.throttle" "^4.1.3"
+    "@types/markdown-it" "^12.2.3"
+    "@types/react" "^18.0.15"
+    "@types/react-dom" "^18.0.6"
+    "@types/route-parser" "^0.1.1"
+    "@types/safer-buffer" "^2.1.0"
+    "@types/uuid" "^9.0.8"
+    "@types/ws" "^8.5.5"
+    "@types/yargs" "^15"
+    "@vscode/codicons" "*"
+    ajv "^6.5.3"
+    async-mutex "^0.4.0"
+    body-parser "^1.17.2"
+    cookie "^0.4.0"
+    dompurify "^3.2.4"
+    drivelist "^12.0.2"
+    express "^4.21.0"
+    fast-json-stable-stringify "^2.1.0"
+    file-icons-js "~1.0.3"
+    font-awesome "^4.7.0"
+    fs-extra "^4.0.2"
+    fuzzy "^0.1.3"
+    http-proxy-agent "^5.0.0"
+    https-proxy-agent "^5.0.0"
+    iconv-lite "^0.6.0"
+    inversify "^6.1.3"
+    jschardet "^2.1.1"
+    keytar "7.9.0"
+    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
+    markdown-it "^12.3.2"
+    msgpackr "^1.10.2"
+    p-debounce "^2.1.0"
+    perfect-scrollbar "1.5.5"
     react "^18.2.0"
     react-dom "^18.2.0"
     react-tooltip "^4.2.21"
@@ -2132,6 +2326,15 @@
   version "1.58.1"
   resolved "https://registry.yarnpkg.com/@theia/request/-/request-1.58.1.tgz#01fcda18e5148a4a4edf4e2553e720ba9d8719a9"
   integrity sha512-H5D3Sabwwh7PTEqGzQQ0vzy8bsrQamXb/XfOh5QGcr4YTkMzv/5TMUR3DPeLftaCiRagM9ksG2Ce7rXdn23+PQ==
+  dependencies:
+    http-proxy-agent "^5.0.0"
+    https-proxy-agent "^5.0.0"
+    tslib "^2.6.2"
+
+"@theia/request@1.62.2":
+  version "1.62.2"
+  resolved "https://registry.yarnpkg.com/@theia/request/-/request-1.62.2.tgz#dab7c06bdb0d6f4ae2d740df6daa41d8aa08d360"
+  integrity sha512-cQcTs4ypLIgTZvorK84ueifG9dnu9iuyIQYA15Ra4bbDI5nmrmxalQtXHlv1n8GfKUrGb8gPgaLGJIkCuue0bg==
   dependencies:
     http-proxy-agent "^5.0.0"
     https-proxy-agent "^5.0.0"
@@ -2614,7 +2817,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/trusted-types@*":
+"@types/trusted-types@*", "@types/trusted-types@^2.0.7":
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.7.tgz#baccb07a970b91707df3a3e8ba6896c57ead2d11"
   integrity sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==
@@ -4875,6 +5078,13 @@ dompurify@^2.2.9:
   version "2.5.8"
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.5.8.tgz#2809d89d7e528dc7a071dea440d7376df676f824"
   integrity sha512-o1vSNgrmYMQObbSSvF/1brBYEQPHhV1+gsmrusO7/GXtp1T9rCS8cXFqVxK/9crT1jA6Ccv+5MTSjBNqr7Sovw==
+
+dompurify@^3.2.4:
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.2.6.tgz#ca040a6ad2b88e2a92dc45f38c79f84a714a1cad"
+  integrity sha512-/2GogDQlohXPZe6D6NOgQvXLPSYBqIWMnZ8zzOhn09REE4eyAzb+Hed3jhoM9OkuaJ8P6ZGTTVWQKAi8ieIzfQ==
+  optionalDependencies:
+    "@types/trusted-types" "^2.0.7"
 
 dot-prop@^3.0.0:
   version "3.0.0"
@@ -8880,6 +9090,11 @@ pend@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
   integrity sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==
+
+perfect-scrollbar@1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.5.tgz#41a211a2fb52a7191eff301432134ea47052b27f"
+  integrity sha512-dzalfutyP3e/FOpdlhVryN4AJ5XDVauVWxybSkLZmakFE2sS3y3pc4JnSprw8tGmHvkaG5Edr5T7LBTZ+WWU2g==
 
 perfect-scrollbar@^1.5.0, perfect-scrollbar@^1.5.5:
   version "1.5.6"
