@@ -117,7 +117,7 @@
     <dependency>
       <groupId>com.github.javaparser</groupId>
       <artifactId>javaparser-core</artifactId>
-      <version>3.26.3</version>
+      <version>3.27.0</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.jdt</groupId>
